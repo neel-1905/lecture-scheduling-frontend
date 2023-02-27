@@ -18,18 +18,21 @@ const AddCourse = () => {
 
   const addCourse = async () => {
     try {
-      const res = await fetch("http://localhost:5000/courses/createCourse", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          courseName: course?.courseName,
-          courseLevel: select,
-          courseDescription: course?.courseDescription,
-        }),
-      });
+      const res = await fetch(
+        "https://lecture-scheduling-backend.vercel.app/courses/createCourse",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            courseName: course?.courseName,
+            courseLevel: select,
+            courseDescription: course?.courseDescription,
+          }),
+        }
+      );
 
       const formatRes = await res.json();
 

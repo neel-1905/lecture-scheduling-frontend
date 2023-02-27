@@ -14,17 +14,20 @@ const CreateLecture = () => {
 
   const createLectue = async () => {
     try {
-      const res = await fetch("http://localhost:5000/lectures/createLecture/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          subject: lecture?.subject,
-          date: lecture?.date,
-        }),
-      });
+      const res = await fetch(
+        "https://lecture-scheduling-backend.vercel.app/lectures/createLecture/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            subject: lecture?.subject,
+            date: lecture?.date,
+          }),
+        }
+      );
 
       const formatRes = await res.json();
 

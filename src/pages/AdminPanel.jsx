@@ -11,13 +11,16 @@ const AdminPanel = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:5000/users/getAll", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
-          },
-        });
+        const res = await fetch(
+          "https://lecture-scheduling-backend.vercel.app/users/getAll",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              token: localStorage.getItem("token"),
+            },
+          }
+        );
 
         const formatRes = await res.json();
         // if (!formatRes?.isSucess) {

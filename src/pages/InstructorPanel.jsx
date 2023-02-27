@@ -14,7 +14,7 @@ const InstructorPanel = () => {
     (async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/users/getAllUserLectures/${location.state.id}`,
+          `https://lecture-scheduling-backend.vercel.app/users/getAllUserLectures/${location.state.id}`,
           {
             method: "GET",
             headers: {
